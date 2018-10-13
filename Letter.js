@@ -11,19 +11,24 @@
 //     updating the stored boolean value to true if it was guessed correctly
 
 var underlyingChar = "";
-var userInput = false;
+var guessedYet = false;
 var guess = process.argv[2];
 
 function Letter(character, guessedYet) {
     this.character = character;
     this.guessedYet = guessedYet;
     this.characterReturn = function() {
-        if (letterGuessed) {
-            
+        if (!guessedYet) {
+            console.log(underlyingChar);
+        } else {
+            console.log("_");
         }
     }
     this.characterCheck = function() {
-        if (underlyingChar === guess) 
-        userInput = true;
+        if (underlyingChar === guess) {
+            guessedYet = true;
+        } else {
+            guessedYet = false;
+        }
     }
 }
