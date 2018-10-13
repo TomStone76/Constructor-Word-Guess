@@ -10,13 +10,19 @@
 // A function that takes a character as an argument and checks it against the underlying character, 
 //     updating the stored boolean value to true if it was guessed correctly
 
+var letterGuessed;
+var userInput;
+var guess = process.argv[2];
+
 function Letter(character, guessedYet) {
     this.character = character;
     this.guessedYet = guessedYet;
     this.characterReturn = function() {
-
+        if (letterGuessed) {
+            
+        }
     }
     this.characterCheck = function() {
-        
+
     }
 }
