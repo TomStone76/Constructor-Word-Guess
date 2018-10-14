@@ -15,7 +15,8 @@ function Word(letters) {
     this.wordString = function() {
 
     }
-    this.cArg = function () {
-
+    this.cArg = function (char) {
+        var c = process.argv;
+        characterCheck();
     }
 }
