@@ -1,15 +1,62 @@
 var inquirer = require("inquirer");
 
-var arr = ['Alabama','Alaska', 'Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia', 'Florida',
-'Georgia', 'Hawaii', 'Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan',
-'Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina',
-'North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island', 'South Carolina','South Dakota','Tennessee','Texas','Utah',
-'Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
+var arr = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida',
+    'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan',
+    'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina',
+    'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah',
+    'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+];
 
-var randState = arr[Math.floor(Math.random() * arr.length)];
+// var randState = arr[Math.floor(Math.random() * arr.length)];
 
 // for (var i = 0; i < arr.length; i++) {
 
 // }
 
-console.log(randState);
+var guessesLeft = 5;
+
+// var charOne = randState.charAt(0);
+
+// console.log("The first letter of the state is " + charOne + ".");
+
+function restart() {
+    inquirer.prompt([{
+        type: "confirm",
+        name: "end",
+        message: "Would you like to play again?"
+    }, ]).then(function ask(endPrompt) {
+        if (endPrompt.end) {
+            game();
+        } else if (!endPrompt.end) {
+            process.exit();
+        }
+    });
+}
+
+function game() {
+    var randState = arr[Math.floor(Math.random() * arr.length)];
+    var charOne = randState.charAt(0);
+    console.log("The first letter of the state is " + charOne + ".");
+    inquirer.prompt([{
+        type: "input",
+        name: "userGuess",
+        message: "Guess the name of the state."
+    }, ]).then(function ask(choice) {
+        if (choice.userGuess === randState) {
+            console.log("Congratulations! You guessed correctly.");
+            randState = arr[Math.floor(Math.random() * arr.length)];
+            restart();
+        } else if (choice.userGuess !== randState) {
+            guessesLeft--;
+            console.log("Sorry! Try again. You have " + guessesLeft + " guesses left.")
+            game();
+            if (guessesLeft === 0) {
+                randState = arr[Math.floor(Math.random() * arr.length)];
+                console.log("Game over!");
+                restart
+            }
+        }
+    });
+}
+
+game();
