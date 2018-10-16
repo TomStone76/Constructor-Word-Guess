@@ -10,13 +10,15 @@
 // A function that takes a character as an argument and checks it against the underlying character, 
 //     updating the stored boolean value to true if it was guessed correctly
 
-var underlyingChar = "";
-var guessedYet = false;
-var guess = process.argv[2];
+// var underlyingChar = "";
+// var guessedYet = false;
+// var guess = process.argv[2];
 
-function Letter(character, guessedYet) {
+
+
+function Letter(character) {
     this.character = character;
-    this.guessedYet = guessedYet;
+    // this.guessedYet = guessedYet; this is probably a method that takes a character ,it returns t/f based on if it's found
     this.characterReturn = function() {
         if (!guessedYet) {
             console.log(underlyingChar);
@@ -32,3 +34,4 @@ function Letter(character, guessedYet) {
         }
     }
 }
+
