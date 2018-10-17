@@ -14,10 +14,9 @@
 
 var letter = require("./Letter");
 
-var letterArr = [];
-
-function Word(letters) {
-    this.letters = letters;
+function Word(lettersOfWord) {
+    this.lettersOfWord = lettersOfWord; //create array, implement methods in instructions
+    this.letterArray = new Letters //iterate through this string; new up a letter object for each character in word you pass in (for loop)
     this.wordString = function() {
         let wordLetters = "";
     }
@@ -26,3 +25,6 @@ function Word(letters) {
         characterCheck(char);
     }
 }
+
+//Export word function (module.exports = word)
+//Then, use it in index.js

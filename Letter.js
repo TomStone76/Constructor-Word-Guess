@@ -13,28 +13,28 @@
 // 4. A function that takes a character as an argument and checks it against the underlying character, 
 //     updating the stored boolean value to true if it was guessed correctly
 
-var underlyingChar = "";
-var guessedYet = false;
-// var guess = process.argv[2];
 
 
 
 function Letter(character) {
     this.character = character;
+    this.guessed = false;
     // this.guessedYet = guessedYet; this is probably a method that takes a character ,it returns t/f based on if it's found
     this.characterReturn = function() {
-        if (!guessedYet) {
-            console.log(underlyingChar);
+        if (this.guessed) {
+            console.log(this.character);
         } else {
             console.log("_");
         }
     }
-    this.characterCheck = function() {
-        if (underlyingChar === guess) {
-            guessedYet = true;
+    this.characterCheck = function(guess) {
+        if (this.character === guess) {
+            this.guessed = true;
         } else {
-            guessedYet = false;
+            this.guessed = false;
         }
     }
 }
+
+//export this and use it in Word
 
