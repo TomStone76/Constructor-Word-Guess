@@ -5,7 +5,8 @@ var wordArr = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colora
     'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan',
     'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina',
     'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah',
-    'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+    'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+];
 
 // var randState = arr[Math.floor(Math.random() * arr.length)];
 
@@ -33,9 +34,10 @@ function restart() {
     });
 }
 
+var randState = wordArr[Math.floor(Math.random() * wordArr.length)];
+var charOne = randState.charAt(0);
+
 function game() {
-    var randState = wordArr[Math.floor(Math.random() * wordArr.length)];
-    var charOne = randState.charAt(0);
     console.log("The first letter of the state is " + charOne + ".");
     inquirer.prompt([{
         type: "input",
