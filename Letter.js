@@ -10,7 +10,7 @@
 // A function that takes a character as an argument and checks it against the underlying character, 
 //     updating the stored boolean value to true if it was guessed correctly
 
-// var underlyingChar = "";
+var underlyingChar = "";
 // var guessedYet = false;
 // var guess = process.argv[2];
 
