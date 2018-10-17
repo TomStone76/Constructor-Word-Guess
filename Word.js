@@ -10,17 +10,17 @@
 // A function that takes a character as an argument and calls the guess function 
 // on each letter object (the second function defined in Letter.js)
 
-var letter = require("Letter.js");
+var letter = require("./Letter");
 
 var letterArr = [];
 
 function Word(letters) {
     this.letters = letters;
     this.wordString = function() {
-        let wordLetters = 
+        let wordLetters = "";
     }
     this.cArg = function (char) {
         var c = process.argv;
-        characterCheck();
+        characterCheck(char);
     }
 }

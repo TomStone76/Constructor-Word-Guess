@@ -1,5 +1,5 @@
 var inquirer = require("inquirer");
-var word = require("Word.js");
+var word = require("./Word");
 
 var wordArr = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida',
     'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan',
@@ -13,7 +13,7 @@ var wordArr = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colora
 
 // }
 
-var guessesLeft = 5;
+var guessesLeft = 9;
 
 // var charOne = randState.charAt(0);
 
@@ -34,7 +34,7 @@ function restart() {
 }
 
 function game() {
-    var randState = arr[Math.floor(Math.random() * arr.length)];
+    var randState = wordArr[Math.floor(Math.random() * wordArr.length)];
     var charOne = randState.charAt(0);
     console.log("The first letter of the state is " + charOne + ".");
     inquirer.prompt([{
@@ -44,14 +44,14 @@ function game() {
     }, ]).then(function ask(choice) {
         if (choice.userGuess === randState) {
             console.log("Congratulations! You guessed correctly.");
-            randState = arr[Math.floor(Math.random() * arr.length)];
+            randState = wordArr[Math.floor(Math.random() * wordArr.length)];
             restart();
         } else if (choice.userGuess !== randState) {
             guessesLeft--;
             console.log("Sorry! Try again. You have " + guessesLeft + " guesses left.")
             game();
             if (guessesLeft === 0) {
-                randState = arr[Math.floor(Math.random() * arr.length)];
+                randState = wordArr[Math.floor(Math.random() * wordArr.length)];
                 console.log("Game over!");
                 restart
             }
