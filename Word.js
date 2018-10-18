@@ -26,5 +26,5 @@ function Word(lettersOfWord) {
     }
 }
 
-//Export word function (module.exports = word)
-//Then, use it in index.js
+module.exports = Word;
+
