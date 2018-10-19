@@ -14,8 +14,6 @@
 //     updating the stored boolean value to true if it was guessed correctly
 
 
-
-
 function Letter(character) {
     this.character = character;
     this.guessed = false;
@@ -29,8 +27,10 @@ function Letter(character) {
     }
     this.characterCheck = function(guess) {
         if (this.character === guess) {
+            console.log("Kind of working");
             this.guessed = true;
         } else {
+            console.log("Kind of working")
             this.guessed = false;
         }
     }
