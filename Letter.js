@@ -22,9 +22,9 @@ function Letter(character) {
     // this.guessedYet = guessedYet; this is probably a method that takes a character ,it returns t/f based on if it's found
     this.characterReturn = function() {
         if (this.guessed) {
-            console.log(this.character);
+            return this.character;
         } else {
-            console.log("_");
+            return "_";
         }
     }
     this.characterCheck = function(guess) {
@@ -37,4 +37,6 @@ function Letter(character) {
 }
 
 //export this and use it in Word
+
+module.exports = Letter;
 

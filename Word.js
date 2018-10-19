@@ -15,8 +15,11 @@
 var letter = require("./Letter");
 
 function Word(lettersOfWord) {
-    this.lettersOfWord = lettersOfWord; //create array, implement methods in instructions
-    this.letterArray = new Letters //iterate through this string; new up a letter object for each character in word you pass in (for loop)
+    this.lettersOfWord = lettersOfWord.split(""); //create array, implement methods in instructions
+    // this.letterArray = new Letters //iterate through this string; new up a letter object for each character in word you pass in (for loop)
+    for (let i = 0; i < lettersOfWord.length; i++) {
+        
+    }
     this.wordString = function() {
         let wordLetters = "";
     }

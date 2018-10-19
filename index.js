@@ -15,11 +15,10 @@ var word = new Word (randState);
 var charOne = randState.charAt(0);
 
 function game() {
-    console.log("The first letter of the state is " + charOne + ".");
     inquirer.prompt([{
         type: "input",
         name: "userGuess",
-        message: "Guess the name of the state."
+        message: "Which U.S. state name did the computer choose? Guess a letter!"
     }, ]).then(function ask(choice) {
         if (choice.userGuess === randState) {
             console.log("Congratulations! You guessed correctly.");
@@ -41,7 +40,7 @@ function restart() {
     inquirer.prompt([{
         type: "confirm",
         name: "end",
-        message: "Would you like to play again? (Type yes or no.)"
+        message: "Would you like to play again?"
     }, ]).then(function ask(endPrompt) {
         if (endPrompt.end) {
             randState = wordArr[Math.floor(Math.random() * wordArr.length)];
