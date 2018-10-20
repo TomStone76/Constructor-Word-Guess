@@ -1,0 +1,25 @@
+{
+  "name": "constructor-word-guess",
+  "version": "1.0.0",
+  "description": "This is a command line Node.js word guess game.",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomStone76/Constructor-Word-Guess.git"
+  },
+  "keywords": [
+    "word",
+    "guess",
+    "node",
+    "constructor"
+  ],
+  "author": "Tom Stone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TomStone76/Constructor-Word-Guess/issues"
+  },
+  "homepage": "https://github.com/TomStone76/Constructor-Word-Guess#readme"
+}
