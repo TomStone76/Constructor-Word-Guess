@@ -11,29 +11,35 @@ var wordArr = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colora
 var guessesLeft = 10;
 
 var randState = wordArr[Math.floor(Math.random() * wordArr.length)];
-var word = new Word (randState);
+var word = new Word(randState);
 var charOne = randState.charAt(0);
 
 function game() {
-    inquirer.prompt([{
-        type: "input",
-        name: "userGuess",
-        message: "Which U.S. state name did the computer choose? Guess a letter!"
-    }, ]).then(function ask(choice) {
-        if (choice.userGuess === randState) {
-            console.log("Congratulations! You guessed correctly.");
-            randState = wordArr[Math.floor(Math.random() * wordArr.length)];
-            restart();
-        } else if (choice.userGuess !== randState) {
+    console.log(word.wordString());
+
+    function turn() {
+        inquirer.prompt([{
+            type: "input",
+            name: "userGuess",
+            message: "Which U.S. state name did the computer choose? Guess a letter!"
+        }, ]).then(function ask(choice) {
+            word.cArg(choice.userGuess);
+            console.log(word.wordString());
             guessesLeft--;
-            console.log("Sorry! Try again. You have " + guessesLeft + " guesses left.")
-            game();
+            console.log("You have " + guessesLeft + " guesses left.");
             if (guessesLeft === 0) {
-                console.log("Game over!");
+                console.log("Game over! The correct answer was " + randState + ".");
                 restart();
             }
-        }
-    });
+            if (randState === word.wordString()) {
+                console.log("Congratulations! You guessed correctly");
+                restart();
+            } else {
+            turn();
+            }
+        });
+    }
+    turn();
 }
 
 function restart() {
@@ -44,7 +50,7 @@ function restart() {
     }, ]).then(function ask(endPrompt) {
         if (endPrompt.end) {
             randState = wordArr[Math.floor(Math.random() * wordArr.length)];
-            charOne = randState.charAt(0);
+            word = new Word(randState);
             guessesLeft = 10;
             game();
         } else if (!endPrompt.end) {

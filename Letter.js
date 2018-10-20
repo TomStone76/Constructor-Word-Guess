@@ -27,11 +27,7 @@ function Letter(character) {
     }
     this.characterCheck = function(guess) {
         if (this.character === guess) {
-            console.log("Kind of working");
             this.guessed = true;
-        } else {
-            console.log("Kind of working")
-            this.guessed = false;
         }
     }
 }
