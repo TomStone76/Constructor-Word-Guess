@@ -18,6 +18,7 @@ function game() {
     console.log(word.wordString());
 
     function turn() {
+        if (guessesLeft > 0) {
         inquirer.prompt([{
             type: "input",
             name: "userGuess",
@@ -32,12 +33,13 @@ function game() {
                 restart();
             }
             if (randState === word.wordString()) {
-                console.log("Congratulations! You guessed correctly");
+                console.log("Congratulations! You guessed correctly.");
                 restart();
             } else {
             turn();
             }
         });
+    }
     }
     turn();
 }
