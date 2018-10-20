@@ -1,14 +1,14 @@
 var inquirer = require("inquirer");
 var Word = require("./Word");
 
-var wordArr = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida',
+var wordArr = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'D.C.', 'Florida',
     'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan',
     'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina',
     'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah',
     'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
 ];
 
-var guessesLeft = 10;
+var guessesLeft = 13;
 
 var randState = wordArr[Math.floor(Math.random() * wordArr.length)];
 var word = new Word(randState);
@@ -22,7 +22,7 @@ function game() {
         inquirer.prompt([{
             type: "input",
             name: "userGuess",
-            message: "Which U.S. state name did the computer choose? Guess a letter!"
+            message: "Which U.S. state name (including D.C.) did the computer choose? Guess a letter!"
         }, ]).then(function ask(choice) {
             word.cArg(choice.userGuess);
             console.log(word.wordString());
