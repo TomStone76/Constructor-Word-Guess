@@ -53,7 +53,7 @@ function restart() {
         if (endPrompt.end) {
             randState = wordArr[Math.floor(Math.random() * wordArr.length)];
             word = new Word(randState);
-            guessesLeft = 10;
+            guessesLeft = 13;
             game();
         } else if (!endPrompt.end) {
             process.exit();
